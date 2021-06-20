@@ -1,7 +1,7 @@
 {
-  "name": "simple-panel",
+  "name": "giphy-panel",
   "version": "1.0.0",
-  "description": "Grafana Panel Plugin Template",
+  "description": "Grafana Giphy Panel Plugin",
   "scripts": {
     "build": "grafana-toolkit plugin:build",
     "test": "grafana-toolkit plugin:test",
@@ -10,7 +10,7 @@
     "sign": "grafana-toolkit plugin:sign",
     "start": "yarn watch"
   },
-  "author": "Grafana Labs",
+  "author": "amankkg",
   "license": "Apache-2.0",
   "devDependencies": {
     "@grafana/data": "latest",

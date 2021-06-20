@@ -1,22 +1,22 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/master/docs/sources/developers/plugins/plugin.schema.json",
   "type": "panel",
-  "name": "Grafana Panel Plugin Template",
-  "id": "myorgid-simple-panel",
+  "name": "giphy-plugin",
+  "id": "myorgid-giphy-panel",
 
   "info": {
-    "description": "Grafana Panel Plugin Template",
+    "description": "Grafana Giphy Panel Plugin",
     "author": {
-      "name": "Your Name"
+      "name": "amankkg"
     },
-    "keywords": ["panel", "template"],
+    "keywords": ["panel", "gif"],
     "logos": {
       "small": "img/logo.svg",
       "large": "img/logo.svg"
     },
     "links": [
-      {"name": "Website", "url": "https://github.com/grafana/grafana-starter-panel"},
-      {"name": "License", "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE"}
+      { "name": "Website", "url": "https://github.com/grafana/grafana-starter-panel" },
+      { "name": "License", "url": "https://github.com/grafana/grafana-starter-panel/blob/master/LICENSE" }
     ],
     "screenshots": [],
     "version": "%VERSION%",

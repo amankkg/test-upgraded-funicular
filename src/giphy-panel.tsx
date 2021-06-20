@@ -6,7 +6,7 @@ import { stylesFactory, useTheme } from '@grafana/ui';
 
 interface Props extends PanelProps<SimpleOptions> {}
 
-export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) => {
+export const GiphyPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const theme = useTheme();
   const styles = getStyles();
   return (
@@ -28,7 +28,7 @@ export const SimplePanel: React.FC<Props> = ({ options, data, width, height }) =
         viewBox={`-${width / 2} -${height / 2} ${width} ${height}`}
       >
         <g>
-          <circle style={{ fill: `${theme.isLight ? theme.palette.greenBase : theme.palette.blue95}` }} r={100} />
+          <circle style={{ fill: `${theme.isLight ? theme.palette.greenBase : theme.palette.redBase}` }} r={100} />
         </g>
       </svg>
 
