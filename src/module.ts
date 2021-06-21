@@ -22,20 +22,23 @@ export const plugin = new PanelPlugin<SimpleOptions>(GiphyPanel).setPanelOptions
       name: 'Series counter size',
       settings: {
         options: [
-          {
-            value: 'sm',
-            label: 'Small',
-          },
-          {
-            value: 'md',
-            label: 'Medium',
-          },
-          {
-            value: 'lg',
-            label: 'Large',
-          },
+          { value: 'sm', label: 'Small' },
+          { value: 'md', label: 'Medium' },
+          { value: 'lg', label: 'Large' },
         ],
       },
       showIf: config => config.showSeriesCount,
+    })
+    .addRadio({
+      path: 'color',
+      name: 'Circle color',
+      defaultValue: 'red',
+      settings: {
+        options: [
+          { value: 'red', label: 'Red' },
+          { value: 'green', label: 'Green' },
+          { value: 'blue', label: 'Blue' },
+        ],
+      },
     });
 });

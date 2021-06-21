@@ -9,6 +9,20 @@ interface Props extends PanelProps<SimpleOptions> {}
 export const GiphyPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const theme = useTheme();
   const styles = getStyles();
+  let color: string;
+
+  switch (options.color) {
+    case 'blue':
+      color = theme.palette.blue95;
+      break;
+    case 'green':
+      color = theme.palette.greenBase;
+      break;
+    case 'red':
+      color = theme.palette.red;
+      break;
+  }
+
   return (
     <div
       className={cx(
@@ -28,7 +42,7 @@ export const GiphyPanel: React.FC<Props> = ({ options, data, width, height }) =>
         viewBox={`-${width / 2} -${height / 2} ${width} ${height}`}
       >
         <g>
-          <circle style={{ fill: `${theme.isLight ? theme.palette.greenBase : theme.palette.redBase}` }} r={100} />
+          <circle style={{ fill: color }} r={100} />
         </g>
       </svg>
 
