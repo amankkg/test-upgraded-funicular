@@ -1,9 +1,11 @@
-import { PanelPlugin } from '@grafana/data';
+import { DataQuery, DataQueryResponse, DataSourceApi, DataSourcePlugin } from '@grafana/data';
 
-import { SimpleOptions } from './types';
+import { GiphyPluginOptions, GiphySourceQuery } from './types';
 import { GiphyPanel } from './giphy-panel';
 
-export const plugin = new PanelPlugin<SimpleOptions>(GiphyPanel).setPanelOptions(builder => {
+export const plugin = new DataSourcePlugin<GiphySourceApi, GiphySourceQuery, GiphyPluginOptions>(
+  GiphyPanel
+).setPanelOptions(builder => {
   return builder
     .addTextInput({
       path: 'text',
@@ -42,3 +44,13 @@ export const plugin = new PanelPlugin<SimpleOptions>(GiphyPanel).setPanelOptions
       },
     });
 });
+
+class GiphySourceApi extends DataSourceApi<GiphySourceQuery, GiphyPluginOptions> {
+  async query(options: DataQuery<GiphySourceQuery>): Promise<DataQueryResponse> {
+    const { search } = opitons;
+  }
+}
+
+const defaultGiphyQuery: GiphySourceQuery = {
+  search: '',
+};

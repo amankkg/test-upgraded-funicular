@@ -1,12 +1,12 @@
 import React from 'react';
 import { PanelProps } from '@grafana/data';
-import { SimpleOptions } from 'types';
+import { GiphyPluginOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory, useTheme } from '@grafana/ui';
 
 import { useGifSearch } from './use-gif-search';
 
-interface Props extends PanelProps<SimpleOptions> {}
+interface Props extends PanelProps<GiphyPluginOptions> {}
 
 export const GiphyPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const theme = useTheme();
