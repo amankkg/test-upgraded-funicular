@@ -7,3 +7,9 @@ export interface SimpleOptions {
   seriesCountSize: SeriesSize;
   color: CircleColor;
 }
+
+export interface GifObject {
+  id: string;
+  title: string;
+  url: string;
+}

@@ -4,11 +4,16 @@ import { SimpleOptions } from 'types';
 import { css, cx } from 'emotion';
 import { stylesFactory, useTheme } from '@grafana/ui';
 
+import { useGifSearch } from './use-gif-search';
+
 interface Props extends PanelProps<SimpleOptions> {}
 
 export const GiphyPanel: React.FC<Props> = ({ options, data, width, height }) => {
   const theme = useTheme();
   const styles = getStyles();
+  const [search, setSearch] = React.useState('test');
+  const gifs = useGifSearch(search);
+
   let color: string;
 
   switch (options.color) {
@@ -33,6 +38,15 @@ export const GiphyPanel: React.FC<Props> = ({ options, data, width, height }) =>
         `
       )}
     >
+      <input value={search} onChange={e => setSearch(e.target.value)} placeholder="search gifs..." />
+      <ul>
+        {gifs.map(gif => (
+          <li key={gif.id}>
+            <img src={gif.url} title={gif.title} alt={gif.title} />
+          </li>
+        ))}
+      </ul>
+
       <svg
         className={styles.svg}
         width={width}
