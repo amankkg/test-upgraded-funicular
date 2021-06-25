@@ -1,3 +1,20 @@
+# Instructions
+
+## Pre-requisites
+
+1. Node.js 14
+2. yarn
+3. Grafana 7 (or docker and appropriate Grafana image)
+
+## Commands
+
+1. Run `yarn` command to install dependencies
+2. Run `npm run build` to build the plugin
+3. Launch Grafana and set up plugins path to the parent directory, e.g.  
+   `docker run -d -p 3000:3000 -v "$(YOUR_PROJECT_PARENT_DIRECTORY)":/var/lib/grafana/plugins --name=grafana grafana/grafana:7.0.0`
+
+Now you can visit `http://localhost:3000` (username: `admin`, password: `admin`) and add a new panel plugin to the dashboard. There are temporarily hardcoded API key and test request but no gifs will be displayed anyway. This is due to browser's 3rd party cookie restrictions, one can check them out in browser's devtools.
+
 # Grafana Panel Plugin Template
 
 [![Build](https://github.com/grafana/grafana-starter-panel/workflows/CI/badge.svg)](https://github.com/grafana/grafana-starter-panel/actions?query=workflow%3A%22CI%22)
