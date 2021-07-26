@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { GifObject } from './types';
+import { GifObject, GiphySearchResponse } from './types';
 
 const API_KEY = 'zCBX9zG85N4BqyOh828dugjjGfNFxDtc';
 
@@ -14,7 +14,7 @@ export const useGifSearch = (search: string): GifObject[] => {
     }
 
     async function load() {
-      let payload: any;
+      let payload: GiphySearchResponse;
 
       try {
         const response = await fetch(`https://api.giphy.com/v1/gifs/search?q=${search}&api_key=${API_KEY}&limit=5`);
@@ -28,10 +28,10 @@ export const useGifSearch = (search: string): GifObject[] => {
         return alert('bad response');
       }
 
-      const data: GifObject[] = payload.data.map(gif => ({
+      const data = payload.data.map(gif => ({
         id: gif.id,
         title: gif.title,
-        url: gif.url,
+        url: gif.images.original.url,
       }));
 
       setData(data);
@@ -43,27 +43,6 @@ export const useGifSearch = (search: string): GifObject[] => {
   return data;
 };
 
-interface GiphyResponse {
-  data: Array<{
-    id: string;
-    title: string;
-    embed_url: string;
-    type: string;
-    slug: string;
-    url: string;
-  }>;
-  pagination: {
-    offset: number;
-    total_count: number;
-    count: number;
-  };
-  meta: {
-    msg: string;
-    status: number;
-    response_id: string;
-  };
-}
-
-const isValidResponse = (payload: any): payload is GiphyResponse => {
+const isValidResponse = (payload: any): payload is GiphySearchResponse => {
   return payload?.meta?.status === 200;
 };

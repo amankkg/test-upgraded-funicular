@@ -1,21 +1,14 @@
+import { MultiResponse, GIFObject } from 'giphy-api';
 import { DataSourceJsonData } from '@grafana/data';
-
-type SeriesSize = 'sm' | 'md' | 'lg';
-type CircleColor = 'red' | 'green' | 'blue';
 
 export interface GiphySourceQuery {
   search: string;
 }
 
 export interface GiphyPluginOptions extends DataSourceJsonData {
-  text: string;
-  showSeriesCount: boolean;
-  seriesCountSize: SeriesSize;
-  color: CircleColor;
+  search: string;
 }
 
-export interface GifObject {
-  id: string;
-  title: string;
-  url: string;
-}
+export { MultiResponse as GiphySearchResponse };
+
+export interface GifObject extends Pick<GIFObject, 'id' | 'title' | 'url'> {}
